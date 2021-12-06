@@ -17,6 +17,7 @@ class TextFieldObserver: NSObject, UITextFieldDelegate {
     }
 }
 
+@available(iOS 13.0, *)
 public struct FocusModifier<Value: FocusStateCompliant & Hashable>: ViewModifier {
     @Binding var focusedField: Value?
     var equals: Value

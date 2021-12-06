@@ -8,6 +8,7 @@
 import SwiftUI
 
 
+@available(iOS 13.0, *)
 public extension View {
     func focusedLegacy<T: FocusStateCompliant>(_ focusedField: Binding<T?>, equals: T) -> some View {
         modifier(FocusModifier(focusedField: focusedField, equals: equals))
