@@ -10,6 +10,7 @@ import Introspect
 
 class TextFieldObserver: NSObject, UITextFieldDelegate {
     var onReturnTap: () -> () = {}
+    var onDismiss: () -> () = {}
     weak var forwardToDelegate: UITextFieldDelegate?
     
     @available(iOS 2.0, *)
@@ -29,11 +30,13 @@ class TextFieldObserver: NSObject, UITextFieldDelegate {
 
     @available(iOS 2.0, *)
     func textFieldDidEndEditing(_ textField: UITextField) {
+        onDismiss()
         forwardToDelegate?.textFieldDidEndEditing?(textField)
     }
 
     @available(iOS 10.0, *)
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        onDismiss()
         forwardToDelegate?.textFieldDidEndEditing?(textField)
     }
 
@@ -76,6 +79,10 @@ public struct FocusModifier<Value: FocusStateCompliant & Hashable>: ViewModifier
                 /// when user taps return we navigate to next responder
                 observer.onReturnTap = {
                     focusedField = focusedField?.next ?? Value.last
+                }
+                                  
+                observer.onDismiss = {
+                    focusedField = nil
                 }
 
                 /// to show kayboard with `next` or `return`
