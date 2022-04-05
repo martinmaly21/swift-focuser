@@ -82,7 +82,9 @@ public struct FocusModifier<Value: FocusStateCompliant & Hashable>: ViewModifier
                 }
                                   
                 observer.onDismiss = {
-                    focusedField = nil
+                    if focusedField?.next == nil {
+                        focusedField = nil
+                    }
                 }
 
                 /// to show kayboard with `next` or `return`
