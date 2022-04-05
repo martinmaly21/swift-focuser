@@ -82,7 +82,7 @@ public struct FocusModifier<Value: FocusStateCompliant & Hashable>: ViewModifier
                 }
                                   
                 observer.onDismiss = {
-                    if focusedField?.next == nil {
+                    if focusedField == Value.last {
                         focusedField = nil
                     }
                 }
