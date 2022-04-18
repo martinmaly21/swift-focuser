@@ -43,7 +43,7 @@ class TextEditorObserver: NSObject, UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        forwardToDelegate?.textView?(textView, shouldInteractWith: URL, in: characterRange, interaction: interaction)
+        forwardToDelegate?.textView?(textView, shouldInteractWith: URL, in: characterRange, interaction: interaction) ?? true
     }
 }
 
