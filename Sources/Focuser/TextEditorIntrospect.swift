@@ -37,6 +37,14 @@ class TextEditorObserver: NSObject, UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {
         forwardToDelegate?.textViewDidChangeSelection?(textView)
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        forwardToDelegate?.textViewDidChange?(textView)
+    }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        forwardToDelegate?.textView?(textView, shouldInteractWith: URL, in: characterRange, interaction: interaction)
+    }
 }
 
 @available(iOS 13.0, *)
