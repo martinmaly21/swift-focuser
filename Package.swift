@@ -19,7 +19,7 @@ let package = Package(
     targets: [
         .target(
             name: "Focuser",
-            dependencies: ["Introspect"]),
+            dependencies: ["SwiftUI-Introspect"]),
         .testTarget(
             name: "FocuserTests",
             dependencies: ["Focuser"]),
