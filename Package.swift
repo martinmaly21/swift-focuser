@@ -14,7 +14,7 @@ let package = Package(
             targets: ["Focuser"]),
     ],
     dependencies: [
-        .package(name: "Introspect", url: "https://github.com/siteline/SwiftUI-Introspect.git", from: "0.1.3")
+        .package(name: "Introspect", url: "https://github.com/martinmaly21/SwiftUI-Introspect.git", revision: "1f68e763c16965b28a9c51d35036e365174b3085")
     ],
     targets: [
         .target(
