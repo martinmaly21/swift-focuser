@@ -19,7 +19,9 @@ let package = Package(
     targets: [
         .target(
             name: "Focuser",
-            dependencies: ["SwiftUI-Introspect"]),
+            dependencies: [
+                .product(name: "Introspect", package: "SwiftUI-Introspect")
+            ]),
         .testTarget(
             name: "FocuserTests",
             dependencies: ["Focuser"]),
